@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>394</width>
-    <height>479</height>
+    <height>487</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>100</x>
-     <y>440</y>
+     <y>450</y>
      <width>181</width>
      <height>32</height>
     </rect>
@@ -32,10 +32,10 @@
   <widget class="QTextBrowser" name="txtHelp">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>10</x>
      <y>10</y>
-     <width>361</width>
-     <height>61</height>
+     <width>371</width>
+     <height>71</height>
     </rect>
    </property>
    <property name="html">
@@ -43,31 +43,14 @@
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.15094pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.15094pt;&quot;&gt;Il file CXF viene convertito in shapefile nelle sue componenti: BORDI, LINEE, TESTI, SIMBOLI e FIDUCIALI. Sistema di riferimento di destinazione: WGS84 (EPSG:4326)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="chkActivate">
-   <property name="enabled">
-    <bool>true</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>350</y>
-     <width>101</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Carica layers
-su mappa</string>
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8.15094pt;&quot;&gt;Il file CXF viene convertito in shapefile o caricato su DB nelle sue componenti: BORDI, LINEE, TESTI, SIMBOLI e FIDUCIALI. Sistema di riferimento di destinazione: WGS84 (EPSG:4326). In caso gli stessi dati siano gia' presenti verranno sovrascritti.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
   </widget>
   <widget class="QToolButton" name="fileBrowse_btn">
    <property name="geometry">
     <rect>
      <x>280</x>
-     <y>80</y>
+     <y>90</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -76,34 +59,11 @@ su mappa</string>
     <string>Choose CXF</string>
    </property>
   </widget>
-  <widget class="QToolButton" name="dirBrowse_btn">
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>160</y>
-     <width>91</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Choose Dir</string>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="fileBrowse_txt">
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
-     <width>241</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="dirBrowse_txt">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>160</y>
+     <y>90</y>
      <width>241</width>
      <height>20</height>
     </rect>
@@ -116,7 +76,7 @@ su mappa</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>350</y>
+     <y>360</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -129,36 +89,84 @@ su mappa</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>390</y>
+     <y>400</y>
      <width>361</width>
      <height>41</height>
     </rect>
    </property>
   </widget>
-  <widget class="QGroupBox" name="groupBox">
+  <widget class="QGroupBox" name="chkShp">
    <property name="geometry">
     <rect>
      <x>9</x>
      <y>119</y>
      <width>371</width>
-     <height>81</height>
+     <height>71</height>
     </rect>
    </property>
    <property name="title">
     <string>Import to Shpfile</string>
    </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <widget class="QLineEdit" name="dirBrowse_txt">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>241</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="dirBrowse_btn">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>20</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Choose Dir</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="chkActivate">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>241</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Carica layers su mappa</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QGroupBox" name="groupBox_2">
+  <widget class="QGroupBox" name="chkDB">
    <property name="geometry">
     <rect>
      <x>9</x>
-     <y>210</y>
+     <y>200</y>
      <width>371</width>
-     <height>131</height>
+     <height>151</height>
     </rect>
    </property>
    <property name="title">
     <string>Import to PGSQL DB</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
    </property>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -218,7 +226,7 @@ su mappa</string>
      <rect>
       <x>70</x>
       <y>90</y>
-      <width>141</width>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
@@ -275,11 +283,11 @@ su mappa</string>
      <string>database</string>
     </property>
    </widget>
-   <widget class="QToolButton" name="testDB">
+   <widget class="QToolButton" name="testBtn">
     <property name="geometry">
      <rect>
-      <x>250</x>
-      <y>90</y>
+      <x>110</x>
+      <y>120</y>
       <width>81</width>
       <height>20</height>
      </rect>
@@ -288,18 +296,60 @@ su mappa</string>
      <string>Test DB</string>
     </property>
    </widget>
+   <widget class="QLineEdit" name="testAnswer">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>120</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="schemaDB">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>90</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>90</y>
+      <width>54</width>
+      <height>14</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>schema</string>
+    </property>
+   </widget>
   </widget>
-  <zorder>groupBox</zorder>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout"/>
+  </widget>
+  <zorder>chkShp</zorder>
+  <zorder>layoutWidget</zorder>
   <zorder>button_box</zorder>
   <zorder>txtHelp</zorder>
-  <zorder>chkActivate</zorder>
   <zorder>fileBrowse_btn</zorder>
-  <zorder>dirBrowse_btn</zorder>
   <zorder>fileBrowse_txt</zorder>
-  <zorder>dirBrowse_txt</zorder>
   <zorder>importBtn</zorder>
   <zorder>txtFeedback</zorder>
-  <zorder>groupBox_2</zorder>
+  <zorder>chkDB</zorder>
  </widget>
  <resources/>
  <connections>

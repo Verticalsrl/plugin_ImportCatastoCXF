@@ -78,10 +78,13 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
     if foglio['CODICE COMUNE'] == 'G087':
         cassini_soldener = '+proj=cass +lat_0=45.007336 +lon_0=7.53725 +x_0=%f +y_0=%f +ellps=intl +units=m +no_defs'
         t_srs='4326'
+    elif foglio['CODICE COMUNE'] == 'B305':
+        cassini_soldener = '+proj=cass +lat_0=45.067618 +lon_0=7.436827 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs'
+        t_srs='4326'
+    elif foglio['CODICE COMUNE'] == 'I785':
+        cassini_soldener = '+proj=cass +lat_0=37.267029 +lon_0=14.692473 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs'
+        t_srs='4326'
     elif foglio['CODICE COMUNE'] == 'G535':
-        #cassini_soldener = '+proj=cass +lat_0=%f +lon_0=%f +x_0=572650 +y_0=4956597 +ellps=intl +units=m +no_defs'
-        #A quanto pare non gli piace se specifico x_0-y_0. Proviamo a specificare l'offset in lat/lon:
-        #cassini_soldener = '+proj=cass +lat_0=44.759075 +lon_0=9.917936 +x_0=%f +y_0=%f +ellps=intl +units=m +no_defs'
         cassini_soldener = '+proj=cass +lat_0=44.759075 +lon_0=9.917936 +x_0=-15.5 +y_0=10.5 +ellps=intl +units=m +no_defs'
         t_srs='4326'
     elif foglio['CODICE COMUNE'] == 'G476':
@@ -109,7 +112,7 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
 
     shift_cassini, shift_gauss_boaga = shifts
     ##### Parte eventualmente da MODIFICARE:
-    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261']:
+    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261','B305','I785']:
         local_cassini_soldener = cassini_soldener
     else:
         local_cassini_soldener = cassini_soldener % (-shift_cassini[0], -shift_cassini[1])
@@ -159,9 +162,11 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
         ds = GetDriverByName(format_name).Open(destination, update=1)
     #Pensavo in questo modo di ovviare all'errore che mi restituisce lo script nel caso di DB:
     #ERROR 1: PostgreSQL driver doesn't currently support database creation. Please create database with the `createdb' command.
-    #ma non ho risolto niente...
-    #elif (format_name == 'PostgreSQL'):
+    #ma non ho risolto niente... Invece aggiungendo "PG:" il plugin genera le tabelle!
+    elif (format_name == 'PostgreSQL'):
     #    ds = GetDriverByName(format_name).Open(destination)
+        #destination = "PG:%s" % (destination)
+        ds = GetDriverByName(format_name).CreateDataSource(destination, options=create_options)
     else:
         ds = GetDriverByName(format_name).CreateDataSource(destination, options=create_options)
     pedice = "%s_%s_%s" % (foglio['CODICE COMUNE'], foglio['NUMERO FOGLIO'], foglio['CODICE SVILUPPO'])
