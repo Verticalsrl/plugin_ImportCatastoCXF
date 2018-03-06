@@ -10,9 +10,10 @@
 name=Import Catasto CXF
 qgisMinimumVersion=2.0
 description=Importa dati catastali geometrici da file CXF
-version=0.1
+version=0.6
 author=A.R.Gaeta/Vertical Srl
 email=ar_gaeta@yahoo.it
+release_date=2016/07/06
 
 about=Questo plugin permette di convertire file catastali .cxf in geometrie shapefile
 

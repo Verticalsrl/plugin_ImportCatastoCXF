@@ -5,11 +5,11 @@
                                  A QGIS plugin
  Importa dati catastali geometrici da file CXF
                               -------------------
-        begin                : 2015-12-10
+        begin                : 2016-07-06
         git sha              : $Format:%H$
         copyright            : (C) 2015 by A.R.Gaeta/Vertical Srl
         email                : ar_gaeta@yahoo.it
-        version              : 0.4beta
+        version              : 0.6
  ***************************************************************************/
 
 /***************************************************************************

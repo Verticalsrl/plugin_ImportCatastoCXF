@@ -99,6 +99,9 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
     elif foglio['CODICE COMUNE'] == 'C261':
         cassini_soldener = '+proj=cass +lat_0=45.31413 +lon_0=9.502994 +x_0=1 +y_0=1 +ellps=intl +units=m +no_defs'
         t_srs='4326'
+    elif foglio['CODICE COMUNE'] == 'C722':
+        cassini_soldener = "+proj=cass +lat_0=45.235812 +lon_0=7.602194 +x_0=0 +y_0=0 +ellps=intl +units=m +no_defs +wktext"
+        t_srs='4326'
     target_srs = SpatialReference()
     try:
         target_srs.ImportFromEPSG(int(t_srs))
@@ -112,7 +115,7 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
 
     shift_cassini, shift_gauss_boaga = shifts
     ##### Parte eventualmente da MODIFICARE:
-    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261','B305','I785']:
+    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261','B305','I785','C722']:
         local_cassini_soldener = cassini_soldener
     else:
         local_cassini_soldener = cassini_soldener % (-shift_cassini[0], -shift_cassini[1])
