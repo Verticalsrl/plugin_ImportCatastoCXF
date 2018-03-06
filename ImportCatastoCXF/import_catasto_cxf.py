@@ -9,7 +9,7 @@
         git sha              : $Format:%H$
         copyright            : (C) 2015 by A.R.Gaeta/Vertical Srl
         email                : ar_gaeta@yahoo.it
-        version              : 0.4beta
+        version              : 0.5beta
  ***************************************************************************/
 
 /***************************************************************************
