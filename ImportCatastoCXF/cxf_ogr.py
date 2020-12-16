@@ -141,6 +141,9 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
     elif foglio['CODICE COMUNE'] == 'I451':
         cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
         t_srs='4326'
+    elif foglio['CODICE COMUNE'] == 'C370':
+        cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
+        t_srs='4326'
     elif foglio['CODICE COMUNE'] == 'D292':
         cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
     target_srs = SpatialReference()
@@ -156,7 +159,7 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
 
     shift_cassini, shift_gauss_boaga = shifts
     ##### Parte eventualmente da MODIFICARE:
-    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261','A484','B266','B868','F618','F625','G226','G793','I307','I410','I451','D292','I143','I089','H683','C722','B305','I785']:
+    if foglio['CODICE COMUNE'] in ['G535', 'I258','L380','G476','C261','A484','B266','B868','F618','F625','G226','G793','I307','I410','I451','D292','I143','I089','H683','C722','B305','I785', 'C370']:
         local_cassini_soldener = cassini_soldener
     else:
         local_cassini_soldener = cassini_soldener % (-shift_cassini[0], -shift_cassini[1])
