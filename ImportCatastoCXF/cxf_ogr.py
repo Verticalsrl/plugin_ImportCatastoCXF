@@ -142,7 +142,7 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
         cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
         t_srs='4326'
     elif foglio['CODICE COMUNE'] == 'C370':
-        cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
+        cassini_soldener = '+proj=cass +lat_0=45.558239 +lon_0=10.76357 +x_0=+0.45 +y_0=-1.90 +ellps=intl +units=m +no_defs'
         t_srs='4326'
     elif foglio['CODICE COMUNE'] == 'D292':
         cassini_soldener = '+proj=cass +lat_0=40.283555 +lon_0=15.483897 +x_0=8.9958 +y_0=-8.3549 +ellps=bessel +towgs84=668.8,146.4,506.5,5.187,-2.54,5.256,0 +units=m +no_defs'
@@ -216,7 +216,8 @@ def write_foglio(foglio, destination, point_borders=False, format_name='ESRI Sha
         ds = GetDriverByName(format_name).CreateDataSource(destination, options=create_options)
     else:
         ds = GetDriverByName(format_name).CreateDataSource(destination, options=create_options)
-    pedice = "%s_%s_%s" % (foglio['CODICE COMUNE'], foglio['NUMERO FOGLIO'], foglio['CODICE SVILUPPO'])
+    #per evitare sovrascritture aggiungo anche l'allegato
+    pedice = "%s_%s_%s_%s" % (foglio['CODICE COMUNE'], foglio['NUMERO FOGLIO'], foglio['CODICE ALLEGATO'], foglio['CODICE SVILUPPO'])
     
     
     #PLUGIN QGIS:
